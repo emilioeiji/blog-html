@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/hatena-bookmark-icon.css">
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Emilio Eiji Inaba">
+  <meta name="description" content="Posts and writings by Emilio Eiji Inaba">
+
+
+<meta name="keywords" content="linux, sed">
+
+  <title>
+    emilioeiji.com.br
+&ndash; sed - Alterando string em arquivo texto  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41240903-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class="site-name">
+        <a href="">emilioeiji.com.br</a>
+      </div>
+      <p>
+        <a href="/archives.html"><i class="fa fa-archive"></i> Archive</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article__title">
+    <h1><a href="/sed-alterar-string-arquivos.html">sed - Alterando string em arquivo texto</a></h1>
+  </div>
+  <div class="article__meta">
+    <p class="article__meta__post-date">Posted on: seg 28 maio 2018</p>
+ Tags:
+      <a href="/tag/linux.html">#linux</a>,      <a href="/tag/sed.html">#sed</a>    </p>
+  </div>
+  <div class="article__text">
+    <p>Estou reinstalando o Pelican para voltar a publicar algumas
+coisas no site e me deparei com a seguinte situação: Após
+reinstalar o pelican e suas dependencias, ao tentar rodar o
+make html o mesmo estava retorando o erro abaixo:</p>
+<div class="highlight"><pre><span></span>CRITICAL: AttributeError: <span class="s1">&#39;str&#39;</span> object has no attribute <span class="s1">&#39;slug&#39;</span>
+Makefile:65: recipe <span class="k">for</span> target <span class="s1">&#39;html&#39;</span> failed
+make: *** <span class="o">[</span>html<span class="o">]</span> Error <span class="m">1</span>
+</pre></div>
+<p>Notei que nos arquivos .rst para a geração dos artigos alguns
+arquivos no cabeçalho estavam com :tag: e outros com :tags:,
+onde os arquivos que estavam com :tag: estavam retornando erro.</p>
+<p>Para alterar todos os arquivos substituindo :tag: para :tags:
+rodei o seguinte comando:</p>
+<div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s,:tag:,:tags:,g&#39;</span> *
+</pre></div>
+
+  </div>
+<section class="social-tools">
+
+    <div class="social-tools__title">
+      <p>Share this post</p>
+    </div>
+
+    <div class="social-tools__buttons">
+      <a class="tweet-blogpost-button"
+         href="https://twitter.com/share?text=emilioeiji.com.br - sed - Alterando string em arquivo texto"
+         onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470'); return false;" >
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="facebook-share-button"
+         href="https://www.facebook.com/sharer/sharer.php?u=/sed-alterar-string-arquivos.html"
+         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" >
+        <i class="fa fa-facebook"></i>
+      </a>
+    </div>
+
+
+</section>
+</article>
+
+
+  </main>
+    <footer>
+      <div class="author__logo">
+          <img src="/theme/images/logo.png" alt="logo">
+      </div>
+      <section class="author">
+        <div class="author__name">
+          <a href="/pages/about.html">Emilio Eiji Inaba</a>
+          <p>Teste de TAG</p>
+        </div>
+        <div class="author__link">
+          <ul>
+            <li>
+              <a href="#" target="_blank" title="twitter">
+                <i class="fa fa-twitter-square"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" title="facebook">
+                <i class="fa fa-facebook-square"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" title="github">
+                <i class="fa fa-github-square"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" title="linkedin">
+                <i class="fa fa-linkedin-square"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="ending-message">
+        <p>&copy; Emilio Eiji Inaba. Powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Theme is using <a href="https://github.com/laughk/pelican-hss" target="_blank">HSS</a>. </p>
+      </div>
+    </footer>
+</body>
+</html>
