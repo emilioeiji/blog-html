@@ -68,9 +68,8 @@ make html o mesmo estava retorando o erro abaixo:</p>
 Makefile:65: recipe <span class="k">for</span> target <span class="s1">&#39;html&#39;</span> failed
 make: *** <span class="o">[</span>html<span class="o">]</span> Error <span class="m">1</span>
 </pre></div>
-<p>Notei que nos arquivos .rst para a geração dos artigos alguns
-arquivos no cabeçalho estavam com :tag: e outros com :tags:,
-onde os arquivos que estavam com :tag: estavam retornando erro.</p>
+<p>Notei que em alguns arquivos .rst o cabeçalho estavam com :tag: e outros com :tags:,
+o pelican estava interpretando apenas :tags: por isso seria necessário padronizar os arquivos.</p>
 <p>Para alterar todos os arquivos substituindo :tag: para :tags:
 rodei o seguinte comando:</p>
 <div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s,:tag:,:tags:,g&#39;</span> *
